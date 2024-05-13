@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0%;
+            padding: 0%;
+            background-color: #d3e9e9;
+        }
+        .Calculator{
+            height: 550px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;    
+            padding: 30px;
+            border-radius: 7px;
+            background-image: url(calculator.jpeg);
+            background-position: center center;
+        }
+        .forBgColor{
+            background-color: rgba(23, 22, 22, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .heading{
+            text-align: center;
+            font-size: 30px;
+            /* background-color: black; */
+
+        }
+        
+        .container{
+            width: 70%;
+            /* background-color: blue; */
+            gap: 20px;
+            height: 300px;
+        }
+        .btn{
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 23px;
+            border: none;
+            border-radius: 7px;
+            background-color: #eee;
+            box-shadow: 0 4px 8px 0 rgba(23, 22, 22, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            /* margin: 10px 20px; */
+        }
+        .btn:hover{
+            background-color: rgb(0, 229, 255);
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+        .color{
+            background-color: aquamarine;
+        }
+        .red{
+            background-color: rgba(238, 8, 8, 0.882);
+        }
+        .red:hover{
+            background-color: rgba(238, 8, 8, 0.882);
+            color: #eee;
+        }
+        .scr:focus{
+            outline: none;
+        }
+        .scr{
+            width: 100%;
+			margin: 10px 0px;
+			height: 60px;
+			font-size: 24px;
+			text-align: right;
+			font-family: cadman;
+			font-weight: bold;
+            background-color: #ddd;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <h1 class="heading">Calculator</h1>
+    <div class="Calculator">
+        <div class="forBgColor">
+        <div>
+            <input class="scr" type="text" name="" id="">
+        </div>
+        <div>
+            <table class="container" cellspacing="20" >
+            <tbody class="table">
+            <tr>
+                <td><button onclick="inputValue(this.innerText)" class="btn">7</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn">8</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn">9</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn color">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="inputValue(this.innerText)" class="btn">4</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn">5</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn">6</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn color">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="inputValue(this.innerText)" class="btn">1</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn">2</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn">3</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn color">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="clr()" class="btn color red">C</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn">0</button></td>
+                <td><button onclick="result()" class="btn color">=</button></td>
+                <td><button onclick="inputValue(this.innerText)" class="btn color">/</button></td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        const screen=document.querySelector('.scr');
+        var button=document.querySelector('.btn');
+        function inputValue(num){
+            switch(num){
+                case '+':
+                    if (screen.value.charAt(screen.value.length-1)=='+' || screen.value.charAt(screen.value.length-1)=='-' || screen.value.charAt(screen.value.length-1)=='*' || screen.value.charAt(screen.value.length-1)=='/'){ 
+                    }else{
+                        screen.value +=num;
+                    }
+                    break;
+                case '-':
+                    if (screen.value.charAt(screen.value.length-1)=='+' || screen.value.charAt(screen.value.length-1)=='-' || screen.value.charAt(screen.value.length-1)=='*' || screen.value.charAt(screen.value.length-1)=='/'){ 
+                    }else{
+                        screen.value +=num;
+                    }
+                    break;
+                case '*':
+                    if (screen.value.charAt(screen.value.length-1)=='+' || screen.value.charAt(screen.value.length-1)=='-' || screen.value.charAt(screen.value.length-1)=='*' || screen.value.charAt(screen.value.length-1)=='/'){ 
+                    }else{
+                        screen.value +=num;
+                    }
+                    break;
+                case '/':
+                    if (screen.value.charAt(screen.value.length-1)=='+' || screen.value.charAt(screen.value.length-1)=='-' || screen.value.charAt(screen.value.length-1)=='*' || screen.value.charAt(screen.value.length-1)=='/'){ 
+                    }else{
+                        screen.value +=num;
+                    }
+                    break;
+                    default:
+                        screen.value +=num;
+                        break;
+            }
+        }
+
+
+        function clr(){
+            screen.value="";
+        }
+
+        function result(){
+            screen.value= eval(screen.value)
+        }
+
+    </script>
+    
+</body>
+</html>
